@@ -8,6 +8,7 @@ public class GcmApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GcmApplication.class, args);
+		duhgasioufdu8gsdfu8
 	}
 
 }
