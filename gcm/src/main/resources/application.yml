@@ -1,0 +1,16 @@
+spring:
+  banner:
+    location: classpath:banner.txt
+      datasource:    url: jdbc:oracle:thin:@192.168.0.8:1521/desa12c.daytonasoft.net
+    username: MBACLOUDDESA
+    password: Centauro  jpa:    database-platform: org.hibernate.dialect.Oracle10gDialect
+    database: ORACLE
+    show-sql: true
+    hibernate:
+      ddl-auto: update 
+    properties:
+        hibernate.id.new_generator_mappings: true
+        hibernate.cache.use_second_level_cache: false
+        hibernate.cache.use_query_cache: false
+        hibernate.generate_statistics: true
+                
