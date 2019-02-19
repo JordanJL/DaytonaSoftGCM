@@ -1,4 +1,4 @@
-package net.daytonasoft.gcm.domain;
+package net.daytonasoft.gcm.service.dto;
 
 import java.util.Date;
  

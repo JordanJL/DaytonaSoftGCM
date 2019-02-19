@@ -6,20 +6,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="GCM_TIPO_ALERGIA")
-public class Alergia implements Serializable {
+@Table(name="GCM_TIPO_ALERGIA_TB_NX")
+public class Alergia {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1893259686827603867L;
 	@Id
 	@SequenceGenerator(name="ALE_SQ", sequenceName="GCM_ALE_SQ_NX")
 	@GeneratedValue(generator="ALE_SQ")
@@ -41,5 +38,59 @@ public class Alergia implements Serializable {
 	private String modificadoPor;
 	@Column(name="ALE_FECHA_MODIFICACION")
 	private Date fechaModificacion;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	public int getEstado() {
+		return estado;
+	}
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
+	public int getSecuencia() {
+		return secuencia;
+	}
+	public void setSecuencia(int secuencia) {
+		this.secuencia = secuencia;
+	}
+	public String getCreadoPor() {
+		return creadoPor;
+	}
+	public void setCreadoPor(String creadoPor) {
+		this.creadoPor = creadoPor;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public String getModificadoPor() {
+		return modificadoPor;
+	}
+	public void setModificadoPor(String modificadoPor) {
+		this.modificadoPor = modificadoPor;
+	}
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
 
 }

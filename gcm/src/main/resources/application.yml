@@ -3,7 +3,7 @@ spring:
     location: classpath:banner.txt
       datasource:    url: jdbc:oracle:thin:@192.168.0.8:1521/desa12c.daytonasoft.net
     username: MBACLOUDDESA
-    password: Centauro  jpa:    database-platform: org.hibernate.dialect.Oracle10gDialect
+    password: Centauro  jpa:
     database: ORACLE
     show-sql: true
     hibernate:

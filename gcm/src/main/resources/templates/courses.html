@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 	<h1>Hola <span th:text="${person.name}"></span></h1> -->
+<!-- 	<h3>Edad:<span th:text="${person.age}"></span></h3> -->
+<table >
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Des</th>
+			<th>Price</th>
+			<th>Hours</th>
+		</tr>
+	</thead>
+	<tbody th:each="course : ${courses}">
+		<tr>
+			<th th:text="${course.name}"></th>
+			<th th:text="${course.description}"></th>
+			<th th:text="${course.price}"></th>
+			<th th:text="${course.hours}"></th>
+		</tr>
+	</tbody>
+</table>
+	<form action="#" th:action="@{/courses/addcourse}" th:object="${course}" method="post">
+		<p>Name: <input type="text" th:field="*{name}"/></p>
+		<p>Desc: <input type="text" th:field="*{description}"/></p>
+		<p>Price: <input type="number" th:field="*{price}"/></p>
+		<p>Hours: <input type="number" th:field="*{hours}"/></p>
+		<p><input type="submit" value="Enviar"/></p>
+	</form>
+</body>
+</html>
