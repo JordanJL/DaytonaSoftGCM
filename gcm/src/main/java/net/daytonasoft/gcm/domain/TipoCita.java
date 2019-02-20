@@ -12,31 +12,32 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="GCM_TIPO_ALERGIA_TB_NX")
-public class Alergia {
-	/**
-	 * 
-	 */
-	
-	@SequenceGenerator(name="GCM_ALE_SQ_NX", sequenceName="GCM_ALE_SQ_NX", allocationSize=1)
-	@Id @GeneratedValue(generator="GCM_ALE_SQ_NX")
-	@Column(name="ALE_ID")
+@Table(name="GCM_TIPO_CITA_TB_NX")
+public class TipoCita {
+	@Id
+	@SequenceGenerator(name="GCM_TCI_SQ_NX", sequenceName="GCM_TCI_SQ_NX")
+	@GeneratedValue(generator="GCM_TCI_SQ")
+	@Column(name="TCI_ID")
 	private int id;
-	@Column(name="ALE_EMP_EMPRESA")
+	@Column(name="TCI_EMP_EMPRESA")
 	private String empresa;
-	@Column(name="ALE_DESCRIPCION")
+	@Column(name="TCI_DESCRIPCION")
 	private String descripcion;
-	@Column(name="ALE_ESTADO")
+	@Column(name="TCI_HORAS")
+	private int horas;
+	@Column(name="TCI_MINUTOS")
+	private int minutos;
+	@Column(name="TCI_ESTADO")
 	private int estado;
-	@Column(name="ALE_SECUENCIA")
+	@Column(name="TCI_SECUENCIA")
 	private int secuencia;
-	@Column(name="ALE_CREADO_POR")
+	@Column(name="TCI_CREADO_POR")
 	private String creadoPor;
-	@Column(name="ALE_FECHA_CREACION")
-	private Date fechaCreacion;
-	@Column(name="ALE_MODIFICADO_POR")
+	@Column(name="TCI_MODIFICADO_POR")
 	private String modificadoPor;
-	@Column(name="ALE_FECHA_MODIFICACION")
+	@Column(name="TCI_FECHA_CREACION")
+	private Date fechaCreacion;
+	@Column(name="TCI_FECHA_MODIFICACION")
 	private Date fechaModificacion;
 	public int getId() {
 		return id;
@@ -56,6 +57,18 @@ public class Alergia {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+	public int getHoras() {
+		return horas;
+	}
+	public void setHoras(int horas) {
+		this.horas = horas;
+	}
+	public int getMinutos() {
+		return minutos;
+	}
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
+	}
 	public int getEstado() {
 		return estado;
 	}
@@ -74,17 +87,17 @@ public class Alergia {
 	public void setCreadoPor(String creadoPor) {
 		this.creadoPor = creadoPor;
 	}
-	public Date getFechaCreacion() {
-		return fechaCreacion;
-	}
-	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
-	}
 	public String getModificadoPor() {
 		return modificadoPor;
 	}
 	public void setModificadoPor(String modificadoPor) {
 		this.modificadoPor = modificadoPor;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 	public Date getFechaModificacion() {
 		return fechaModificacion;
@@ -92,5 +105,6 @@ public class Alergia {
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
 	}
+	
 
 }

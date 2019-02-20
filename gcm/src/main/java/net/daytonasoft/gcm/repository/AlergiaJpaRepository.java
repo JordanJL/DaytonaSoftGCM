@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import net.daytonasoft.gcm.domain.Alergia;
 
 @Repository("alergiaRepository")
-public interface AlergiaJPARepository extends JpaRepository<Alergia,Integer> {
+public interface AlergiaJpaRepository extends JpaRepository<Alergia,Integer> {
 	
 //	public abstract Course findByPrice(int price);
 //	

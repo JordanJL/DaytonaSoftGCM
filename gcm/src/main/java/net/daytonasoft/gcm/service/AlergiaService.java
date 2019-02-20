@@ -6,8 +6,8 @@ import java.util.List;
 public interface AlergiaService {
 
 	public abstract List<Alergia> listAllAlergias();
-	public abstract Alergia addCourse(Alergia alergia);
+	public abstract Alergia addAlergia(Alergia alergia);
 	public abstract int removeAlergia(int id);
-	public abstract Alergia updateCourse(Alergia alergia);
+	public abstract Alergia updateAlergia(Alergia alergia);
 
 }
