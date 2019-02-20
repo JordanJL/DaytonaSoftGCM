@@ -17,7 +17,7 @@ import javax.persistence.Version;
 )
 public class Persona {
 	
-	private int persona;
+	private int persona1;
     private String nombre;
     private String apellidos;
     private int tipoDocumento;
