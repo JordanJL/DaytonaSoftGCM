@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.daytonasoft.gcm.domain.Alergia;
+import net.daytonasoft.gcm.domain.Persona;
 import net.daytonasoft.gcm.service.AlergiaService;
+import net.daytonasoft.gcm.service.PersonaService;
 
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/restalergias")
@@ -28,4 +30,6 @@ public class RestController {
 		return new ResponseEntity(ale,HttpStatus.OK);
 	}
 
+	
+	
 }

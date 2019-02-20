@@ -3,10 +3,12 @@ package net.daytonasoft.gcm.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import net.daytonasoft.gcm.domain.Alergia;
+import net.daytonasoft.gcm.domain.Persona;
 
-@Repository("alergiaRepository")
-public interface AlergiaJPARepository extends JpaRepository<Alergia,Integer> {
+@Repository("personaRepository")
+public interface PersonaJPARepository extends JpaRepository<Persona,Integer> {
+
+
 	
 //	public abstract Course findByPrice(int price);
 //	
