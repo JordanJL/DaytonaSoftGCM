@@ -1,8 +1,7 @@
 package net.daytonasoft.gcm.domain;
 
 import javax.persistence.Entity;
-
-import java.io.Serializable;
+ 
 import java.util.Date;
 
 import javax.persistence.Column;

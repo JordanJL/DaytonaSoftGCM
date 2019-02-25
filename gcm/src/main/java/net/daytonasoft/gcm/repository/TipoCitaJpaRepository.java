@@ -1,10 +1,8 @@
 package net.daytonasoft.gcm.repository;
-
-import java.io.Serializable;
+ 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import net.daytonasoft.gcm.domain.Alergia;
+ 
 import net.daytonasoft.gcm.domain.TipoCita;
 
 @Repository("tipoCitaRepository")

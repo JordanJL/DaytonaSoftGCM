@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import net.daytonasoft.gcm.domain.Persona;
 
 @Repository("personaRepository")
-public interface PersonaJPARepository extends JpaRepository<Persona,Integer> {
+public interface PersonaJpaRepository extends JpaRepository<Persona,Integer> {
 
 
 	

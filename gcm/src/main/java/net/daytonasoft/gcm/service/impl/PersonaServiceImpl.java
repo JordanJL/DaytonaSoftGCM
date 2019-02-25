@@ -10,7 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import net.daytonasoft.gcm.domain.Persona;
-import net.daytonasoft.gcm.repository.PersonaJPARepository;
+import net.daytonasoft.gcm.repository.PersonaJpaRepository;
 import net.daytonasoft.gcm.service.PersonaService;
 import java.awt.print.Pageable;
 @Service("personaServiceImpl")
@@ -19,7 +19,7 @@ public class PersonaServiceImpl implements PersonaService{
 
 		@Autowired
 		@Qualifier("personaRepository")
-		private PersonaJPARepository personaJpaRepository;
+		private PersonaJpaRepository personaJpaRepository;
 		@Override
 		public List<Persona> listAllPersonas() {
 
