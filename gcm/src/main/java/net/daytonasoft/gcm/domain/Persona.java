@@ -1,22 +1,21 @@
 package net.daytonasoft.gcm.domain;
 
-import java.util.Date;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
-import javax.persistence.Version;
 
 @Entity
-@Table(name="GNL_PERSONA_TR_NX"
-    ,schema="MBACLOUDDESA"
-    , uniqueConstraints = @UniqueConstraint(columnNames="DOCUMENTO_NIT") 
-)
+@Table(name="GNL_PERSONA_TR_NX")
+
 public class Persona {
-	
+	@SequenceGenerator(name="GNL_PERSONA_SQ_NX", sequenceName="GNL_PERSONA_SQ_NX", allocationSize=1)
+	@Id @GeneratedValue(generator="GNL_PERSONA_SQ_NX")
 	private int persona;
     private String nombre;
     private String apellidos;
@@ -89,21 +88,19 @@ public class Persona {
     private String crFolio2;
     private String crAsiento2;
     private String perTcuCuenta;
-    private Integer perVersion;
     
    public Persona() {
    }
 
 	
-   public Persona(int persona, String perAfiliadoDiamante, int perEstudiante, int perProfesor, String perEmpEmpresa, Integer perVersion) {
+   public Persona(int persona, String perAfiliadoDiamante, int perEstudiante, int perProfesor, String perEmpEmpresa) {
        this.persona = persona;
        this.perAfiliadoDiamante = perAfiliadoDiamante;
        this.perEstudiante = perEstudiante;
        this.perProfesor = perProfesor;
        this.perEmpEmpresa = perEmpEmpresa;
-       this.perVersion = perVersion;
    }
-   public Persona(int persona, String nombre, String apellidos, int tipoDocumento, String documento, String razonSocial, Date fechaNacimiento, String sexo, String pfeProfesion, String nacionalidad, int proveedor, int cliente, int banco, int empleado, int servicios, int otro, String expOtro, String paiPais, String ciuCiudad, String zonZona, String email, String direccion, String correspondencia, String telefono1, String telefono2, String fax, String apartado, String regimenIva, String granContribuyente, String autoretenedor, String actActividad, String observaciones, String representanteLegal, String cedulaRepresentante, String contacto1, String cargoContacto1, String relacionContacto1, String contacto2, String cargoContacto2, String relacionContacto2, String contacto3, String cargoContacto3, String relacionContacto3, String creadoPor, Date fechaCreacion, String modificadoPor, Date fechaModificacion, String citaRegistral, String estadoCivil, String crTomo, String crFolio, String crAsiento, String digitoVerificacion, String documentoNit, String domFiscal, String telefono3, String perAfiliadoDiamante, int perEstudiante, int perProfesor, String perGrdGradoAcademico, String perApellidoSolteraCasada, Long perProProvincia, String perClaseSecEconomico, String provincia, String distrito, String canton, String perEmpEmpresa, Long perConsecutivo, String crTomo2, String crFolio2, String crAsiento2, String perTcuCuenta, Integer perVersion) {
+   public Persona(int persona, String nombre, String apellidos, int tipoDocumento, String documento, String razonSocial, Date fechaNacimiento, String sexo, String pfeProfesion, String nacionalidad, int proveedor, int cliente, int banco, int empleado, int servicios, int otro, String expOtro, String paiPais, String ciuCiudad, String zonZona, String email, String direccion, String correspondencia, String telefono1, String telefono2, String fax, String apartado, String regimenIva, String granContribuyente, String autoretenedor, String actActividad, String observaciones, String representanteLegal, String cedulaRepresentante, String contacto1, String cargoContacto1, String relacionContacto1, String contacto2, String cargoContacto2, String relacionContacto2, String contacto3, String cargoContacto3, String relacionContacto3, String creadoPor, Date fechaCreacion, String modificadoPor, Date fechaModificacion, String citaRegistral, String estadoCivil, String crTomo, String crFolio, String crAsiento, String digitoVerificacion, String documentoNit, String domFiscal, String telefono3, String perAfiliadoDiamante, int perEstudiante, int perProfesor, String perGrdGradoAcademico, String perApellidoSolteraCasada, Long perProProvincia, String perClaseSecEconomico, String provincia, String distrito, String canton, String perEmpEmpresa, Long perConsecutivo, String crTomo2, String crFolio2, String crAsiento2, String perTcuCuenta) {
       this.persona = persona;
       this.nombre = nombre;
       this.apellidos = apellidos;
@@ -176,7 +173,6 @@ public class Persona {
       this.crFolio2 = crFolio2;
       this.crAsiento2 = crAsiento2;
       this.perTcuCuenta = perTcuCuenta;
-      this.perVersion = perVersion;
    }
    
    @Id 
@@ -210,7 +206,7 @@ public class Persona {
    }
 
    
-   @Column(name="TIPO_DOCUMENTO", precision=1, scale=0)
+   @Column(name="TIPO_DOCUMENTO")
    public int getTipoDocumento() {
        return this.tipoDocumento;
    }
@@ -220,7 +216,7 @@ public class Persona {
    }
 
    
-   @Column(name="DOCUMENTO", length=20)
+   @Column(name="DOCUMENTO")
    public String getDocumento() {
        return this.documento;
    }
@@ -230,7 +226,7 @@ public class Persona {
    }
 
    
-   @Column(name="RAZON_SOCIAL", length=150)
+   @Column(name="RAZON_SOCIAL")
    public String getRazonSocial() {
        return this.razonSocial;
    }
@@ -239,8 +235,7 @@ public class Persona {
        this.razonSocial = razonSocial;
    }
 
-   @Temporal(TemporalType.DATE)
-   @Column(name="FECHA_NACIMIENTO", length=7)
+   @Column(name="FECHA_NACIMIENTO")
    public Date getFechaNacimiento() {
        return this.fechaNacimiento;
    }
@@ -250,7 +245,7 @@ public class Persona {
    }
 
    
-   @Column(name="SEXO", length=1)
+   @Column(name="SEXO")
    public String getSexo() {
        return this.sexo;
    }
@@ -260,7 +255,7 @@ public class Persona {
    }
 
    
-   @Column(name="PFE_PROFESION", length=20)
+   @Column(name="PFE_PROFESION")
    public String getPfeProfesion() {
        return this.pfeProfesion;
    }
@@ -270,7 +265,7 @@ public class Persona {
    }
 
    
-   @Column(name="NACIONALIDAD", length=30)
+   @Column(name="NACIONALIDAD")
    public String getNacionalidad() {
        return this.nacionalidad;
    }
@@ -280,7 +275,7 @@ public class Persona {
    }
 
    
-   @Column(name="PROVEEDOR", precision=1, scale=0)
+   @Column(name="PROVEEDOR")
    public int getProveedor() {
        return this.proveedor;
    }
@@ -290,7 +285,7 @@ public class Persona {
    }
 
    
-   @Column(name="CLIENTE", precision=1, scale=0)
+   @Column(name="CLIENTE")
    public int getCliente() {
        return this.cliente;
    }
@@ -300,7 +295,7 @@ public class Persona {
    }
 
    
-   @Column(name="BANCO", precision=1, scale=0)
+   @Column(name="BANCO")
    public int getBanco() {
        return this.banco;
    }
@@ -310,7 +305,7 @@ public class Persona {
    }
 
    
-   @Column(name="EMPLEADO", precision=1, scale=0)
+   @Column(name="EMPLEADO")
    public int getEmpleado() {
        return this.empleado;
    }
@@ -320,7 +315,7 @@ public class Persona {
    }
 
    
-   @Column(name="SERVICIOS", precision=1, scale=0)
+   @Column(name="SERVICIOS")
    public int getServicios() {
        return this.servicios;
    }
@@ -330,7 +325,7 @@ public class Persona {
    }
 
    
-   @Column(name="OTRO", precision=1, scale=0)
+   @Column(name="OTRO")
    public int getOtro() {
        return this.otro;
    }
@@ -340,7 +335,7 @@ public class Persona {
    }
 
    
-   @Column(name="EXP_OTRO", length=20)
+   @Column(name="EXP_OTRO")
    public String getExpOtro() {
        return this.expOtro;
    }
@@ -350,7 +345,7 @@ public class Persona {
    }
 
    
-   @Column(name="PAI_PAIS", length=6)
+   @Column(name="PAI_PAIS")
    public String getPaiPais() {
        return this.paiPais;
    }
@@ -360,7 +355,7 @@ public class Persona {
    }
 
    
-   @Column(name="CIU_CIUDAD", length=6)
+   @Column(name="CIU_CIUDAD")
    public String getCiuCiudad() {
        return this.ciuCiudad;
    }
@@ -370,7 +365,7 @@ public class Persona {
    }
 
    
-   @Column(name="ZON_ZONA", length=6)
+   @Column(name="ZON_ZONA")
    public String getZonZona() {
        return this.zonZona;
    }
@@ -380,7 +375,7 @@ public class Persona {
    }
 
    
-   @Column(name="EMAIL", length=60)
+   @Column(name="EMAIL")
    public String getEmail() {
        return this.email;
    }
@@ -390,7 +385,7 @@ public class Persona {
    }
 
    
-   @Column(name="DIRECCION", length=200)
+   @Column(name="DIRECCION")
    public String getDireccion() {
        return this.direccion;
    }
@@ -400,7 +395,7 @@ public class Persona {
    }
 
    
-   @Column(name="CORRESPONDENCIA", length=100)
+   @Column(name="CORRESPONDENCIA")
    public String getCorrespondencia() {
        return this.correspondencia;
    }
@@ -410,7 +405,7 @@ public class Persona {
    }
 
    
-   @Column(name="TELEFONO1", length=20)
+   @Column(name="TELEFONO1")
    public String getTelefono1() {
        return this.telefono1;
    }
@@ -420,7 +415,7 @@ public class Persona {
    }
 
    
-   @Column(name="TELEFONO2", length=20)
+   @Column(name="TELEFONO2")
    public String getTelefono2() {
        return this.telefono2;
    }
@@ -430,7 +425,7 @@ public class Persona {
    }
 
    
-   @Column(name="FAX", length=20)
+   @Column(name="FAX")
    public String getFax() {
        return this.fax;
    }
@@ -440,7 +435,7 @@ public class Persona {
    }
 
    
-   @Column(name="APARTADO", length=20)
+   @Column(name="APARTADO")
    public String getApartado() {
        return this.apartado;
    }
@@ -450,7 +445,7 @@ public class Persona {
    }
 
    
-   @Column(name="REGIMEN_IVA", length=1)
+   @Column(name="REGIMEN_IVA")
    public String getRegimenIva() {
        return this.regimenIva;
    }
@@ -460,7 +455,7 @@ public class Persona {
    }
 
    
-   @Column(name="GRAN_CONTRIBUYENTE", length=1)
+   @Column(name="GRAN_CONTRIBUYENTE")
    public String getGranContribuyente() {
        return this.granContribuyente;
    }
@@ -470,7 +465,7 @@ public class Persona {
    }
 
    
-   @Column(name="AUTORETENEDOR", length=1)
+   @Column(name="AUTORETENEDOR")
    public String getAutoretenedor() {
        return this.autoretenedor;
    }
@@ -480,7 +475,7 @@ public class Persona {
    }
 
    
-   @Column(name="ACT_ACTIVIDAD", length=6)
+   @Column(name="ACT_ACTIVIDAD")
    public String getActActividad() {
        return this.actActividad;
    }
@@ -490,7 +485,7 @@ public class Persona {
    }
 
    
-   @Column(name="OBSERVACIONES", length=100)
+   @Column(name="OBSERVACIONES")
    public String getObservaciones() {
        return this.observaciones;
    }
@@ -500,7 +495,7 @@ public class Persona {
    }
 
    
-   @Column(name="REPRESENTANTE_LEGAL", length=30)
+   @Column(name="REPRESENTANTE_LEGAL")
    public String getRepresentanteLegal() {
        return this.representanteLegal;
    }
@@ -510,7 +505,7 @@ public class Persona {
    }
 
    
-   @Column(name="CEDULA_REPRESENTANTE", length=20)
+   @Column(name="CEDULA_REPRESENTANTE")
    public String getCedulaRepresentante() {
        return this.cedulaRepresentante;
    }
@@ -520,7 +515,7 @@ public class Persona {
    }
 
    
-   @Column(name="CONTACTO1", length=30)
+   @Column(name="CONTACTO1")
    public String getContacto1() {
        return this.contacto1;
    }
@@ -530,7 +525,7 @@ public class Persona {
    }
 
    
-   @Column(name="CARGO_CONTACTO1", length=30)
+   @Column(name="CARGO_CONTACTO1")
    public String getCargoContacto1() {
        return this.cargoContacto1;
    }
@@ -540,7 +535,7 @@ public class Persona {
    }
 
    
-   @Column(name="RELACION_CONTACTO1", length=50)
+   @Column(name="RELACION_CONTACTO1")
    public String getRelacionContacto1() {
        return this.relacionContacto1;
    }
@@ -550,7 +545,7 @@ public class Persona {
    }
 
    
-   @Column(name="CONTACTO2", length=30)
+   @Column(name="CONTACTO2")
    public String getContacto2() {
        return this.contacto2;
    }
@@ -560,7 +555,7 @@ public class Persona {
    }
 
    
-   @Column(name="CARGO_CONTACTO2", length=30)
+   @Column(name="CARGO_CONTACTO2")
    public String getCargoContacto2() {
        return this.cargoContacto2;
    }
@@ -570,7 +565,7 @@ public class Persona {
    }
 
    
-   @Column(name="RELACION_CONTACTO2", length=50)
+   @Column(name="RELACION_CONTACTO2")
    public String getRelacionContacto2() {
        return this.relacionContacto2;
    }
@@ -580,7 +575,7 @@ public class Persona {
    }
 
    
-   @Column(name="CONTACTO3", length=30)
+   @Column(name="CONTACTO3")
    public String getContacto3() {
        return this.contacto3;
    }
@@ -590,7 +585,7 @@ public class Persona {
    }
 
    
-   @Column(name="CARGO_CONTACTO3", length=30)
+   @Column(name="CARGO_CONTACTO3")
    public String getCargoContacto3() {
        return this.cargoContacto3;
    }
@@ -600,7 +595,7 @@ public class Persona {
    }
 
    
-   @Column(name="RELACION_CONTACTO3", length=50)
+   @Column(name="RELACION_CONTACTO3")
    public String getRelacionContacto3() {
        return this.relacionContacto3;
    }
@@ -610,7 +605,7 @@ public class Persona {
    }
 
    
-   @Column(name="CREADO_POR", length=30)
+   @Column(name="CREADO_POR")
    public String getCreadoPor() {
        return this.creadoPor;
    }
@@ -619,8 +614,8 @@ public class Persona {
        this.creadoPor = creadoPor;
    }
 
-   @Temporal(TemporalType.DATE)
-   @Column(name="FECHA_CREACION", length=7)
+  
+   @Column(name="FECHA_CREACION")
    public Date getFechaCreacion() {
        return this.fechaCreacion;
    }
@@ -630,7 +625,7 @@ public class Persona {
    }
 
    
-   @Column(name="MODIFICADO_POR", length=30)
+   @Column(name="MODIFICADO_POR")
    public String getModificadoPor() {
        return this.modificadoPor;
    }
@@ -639,8 +634,8 @@ public class Persona {
        this.modificadoPor = modificadoPor;
    }
 
-   @Temporal(TemporalType.DATE)
-   @Column(name="FECHA_MODIFICACION", length=7)
+   
+   @Column(name="FECHA_MODIFICACION")
    public Date getFechaModificacion() {
        return this.fechaModificacion;
    }
@@ -650,7 +645,7 @@ public class Persona {
    }
 
    
-   @Column(name="CITA_REGISTRAL", length=600)
+   @Column(name="CITA_REGISTRAL")
    public String getCitaRegistral() {
        return this.citaRegistral;
    }
@@ -660,7 +655,7 @@ public class Persona {
    }
 
    
-   @Column(name="ESTADO_CIVIL", length=3)
+   @Column(name="ESTADO_CIVIL")
    public String getEstadoCivil() {
        return this.estadoCivil;
    }
@@ -670,7 +665,7 @@ public class Persona {
    }
 
    
-   @Column(name="CR_TOMO", length=20)
+   @Column(name="CR_TOMO")
    public String getCrTomo() {
        return this.crTomo;
    }
@@ -680,7 +675,7 @@ public class Persona {
    }
 
    
-   @Column(name="CR_FOLIO", length=20)
+   @Column(name="CR_FOLIO")
    public String getCrFolio() {
        return this.crFolio;
    }
@@ -690,7 +685,7 @@ public class Persona {
    }
 
    
-   @Column(name="CR_ASIENTO", length=20)
+   @Column(name="CR_ASIENTO")
    public String getCrAsiento() {
        return this.crAsiento;
    }
@@ -700,7 +695,7 @@ public class Persona {
    }
 
    
-   @Column(name="DIGITO_VERIFICACION", length=1)
+   @Column(name="DIGITO_VERIFICACION")
    public String getDigitoVerificacion() {
        return this.digitoVerificacion;
    }
@@ -710,7 +705,7 @@ public class Persona {
    }
 
    
-   @Column(name="DOCUMENTO_NIT", unique=true, length=20)
+   @Column(name="DOCUMENTO_NIT")
    public String getDocumentoNit() {
        return this.documentoNit;
    }
@@ -720,7 +715,7 @@ public class Persona {
    }
 
    
-   @Column(name="DOM_FISCAL", length=100)
+   @Column(name="DOM_FISCAL")
    public String getDomFiscal() {
        return this.domFiscal;
    }
@@ -730,7 +725,7 @@ public class Persona {
    }
 
    
-   @Column(name="TELEFONO3", length=20)
+   @Column(name="TELEFONO3")
    public String getTelefono3() {
        return this.telefono3;
    }
@@ -740,7 +735,7 @@ public class Persona {
    }
 
    
-   @Column(name="PER_AFILIADO_DIAMANTE", nullable=false, length=1)
+   @Column(name="PER_AFILIADO_DIAMANTE")
    public String getPerAfiliadoDiamante() {
        return this.perAfiliadoDiamante;
    }
@@ -749,7 +744,7 @@ public class Persona {
        this.perAfiliadoDiamante = perAfiliadoDiamante;
    }
    
- @Column(name="PER_ESTUDIANTE", precision=1, scale=0)
+ @Column(name="PER_ESTUDIANTE")
    public int getPerEstudiante() {
        return perEstudiante;
    }
@@ -758,7 +753,7 @@ public class Persona {
        this.perEstudiante = perEstudiante;
    }
    
-    @Column(name="PER_PROFESOR", precision=1, scale=0)
+    @Column(name="PER_PROFESOR")
    public int getPerProfesor() {
        return perEstudiante;
    }
@@ -767,7 +762,7 @@ public class Persona {
        this.perEstudiante = perEstudiante;
    }
    
-   @Column(name="PER_GRD_GRADO_ACADEMICO", length=10)
+   @Column(name="PER_GRD_GRADO_ACADEMICO")
    public String getPerGrdGradoAcademico() {
        return this.perGrdGradoAcademico;
    }
@@ -777,7 +772,7 @@ public class Persona {
    }
 
    
-   @Column(name="PER_APELLIDO_SOLTERA_CASADA", length=100)
+   @Column(name="PER_APELLIDO_SOLTERA_CASADA")
    public String getPerApellidoSolteraCasada() {
        return this.perApellidoSolteraCasada;
    }
@@ -787,7 +782,7 @@ public class Persona {
    }
 
    
-   @Column(name="PER_PRO_PROVINCIA", precision=10, scale=0)
+   @Column(name="PER_PRO_PROVINCIA")
    public Long getPerProProvincia() {
        return this.perProProvincia;
    }
@@ -797,7 +792,7 @@ public class Persona {
    }
 
    
-   @Column(name="PER_CLASE_SEC_ECONOMICO", length=60)
+   @Column(name="PER_CLASE_SEC_ECONOMICO")
    public String getPerClaseSecEconomico() {
        return this.perClaseSecEconomico;
    }
@@ -807,7 +802,7 @@ public class Persona {
    }
 
    
-   @Column(name="PROVINCIA", length=30)
+   @Column(name="PROVINCIA")
    public String getProvincia() {
        return this.provincia;
    }
@@ -817,7 +812,7 @@ public class Persona {
    }
 
    
-   @Column(name="DISTRITO", length=30)
+   @Column(name="DISTRITO")
    public String getDistrito() {
        return this.distrito;
    }
@@ -827,7 +822,7 @@ public class Persona {
    }
 
    
-   @Column(name="CANTON", length=30)
+   @Column(name="CANTON")
    public String getCanton() {
        return this.canton;
    }
@@ -837,7 +832,7 @@ public class Persona {
    }
 
    
-   @Column(name="PER_EMP_EMPRESA", nullable=false, length=6)
+   @Column(name="PER_EMP_EMPRESA")
    public String getPerEmpEmpresa() {
        return this.perEmpEmpresa;
    }
@@ -847,7 +842,7 @@ public class Persona {
    }
 
    
-   @Column(name="PER_CONSECUTIVO", precision=10, scale=0)
+   @Column(name="PER_CONSECUTIVO")
    public Long getPerConsecutivo() {
        return this.perConsecutivo;
    }
@@ -857,7 +852,7 @@ public class Persona {
    }
 
    
-   @Column(name="CR_TOMO_2", length=20)
+   @Column(name="CR_TOMO_2")
    public String getCrTomo2() {
        return this.crTomo2;
    }
@@ -867,7 +862,7 @@ public class Persona {
    }
 
    
-   @Column(name="CR_FOLIO_2", length=20)
+   @Column(name="CR_FOLIO_2")
    public String getCrFolio2() {
        return this.crFolio2;
    }
@@ -877,7 +872,7 @@ public class Persona {
    }
 
    
-   @Column(name="CR_ASIENTO_2", length=20)
+   @Column(name="CR_ASIENTO_2")
    public String getCrAsiento2() {
        return this.crAsiento2;
    }
@@ -887,7 +882,7 @@ public class Persona {
    }
 
    
-   @Column(name="PER_TCU_CUENTA", length=10)
+   @Column(name="PER_TCU_CUENTA")
    public String getPerTcuCuenta() {
        return this.perTcuCuenta;
    }
@@ -895,18 +890,6 @@ public class Persona {
    public void setPerTcuCuenta(String perTcuCuenta) {
        this.perTcuCuenta = perTcuCuenta;
    }
-   
- 
-  @Version
-   @Column(name="PER_VERSION")
-   public Integer getPerVersion() {
-       return perVersion;
-   }
-
-   public void setPerVersion(Integer perVersion) {
-       this.perVersion = perVersion;
-   }
-   
    
    
 

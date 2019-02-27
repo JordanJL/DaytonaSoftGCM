@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import net.daytonasoft.gcm.domain.Alergia;
 import net.daytonasoft.gcm.domain.Persona;
 import net.daytonasoft.gcm.repository.PersonaJpaRepository;
 import net.daytonasoft.gcm.service.PersonaService;
@@ -25,12 +26,7 @@ public class PersonaServiceImpl implements PersonaService{
 
 			return (List<Persona>) personaJpaRepository.findAll();
 		}
-		
-		@Override
-		public Optional<Persona> listSinglePersona() {
-			
-			return  personaJpaRepository.findById(116202);
-		}
+
 		
 		@Override
 		public Optional<Persona>  findOne(int id) {
@@ -54,8 +50,7 @@ public class PersonaServiceImpl implements PersonaService{
 		@Override
 		public Persona updatePersona(Persona persona) {
 			// TODO Auto-generated method stub
-			return null;
+			return personaJpaRepository.save(persona);
 		}
-
 		
 	}
