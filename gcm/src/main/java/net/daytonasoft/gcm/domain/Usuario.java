@@ -24,20 +24,13 @@ import javax.persistence.Table;
 })
 public class Usuario {
 	@Id
-	@Column(name="USER_ID")
+	@Column(name = "USERID")
 	private int id;
 	@Column(name="USERNAME")
 	private String username;
 	@Column(name="PASSWORD")
 	private String password;
-	@Column(name="DESCRIPCION")
-	private String descripcion;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -50,10 +43,5 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+
 }

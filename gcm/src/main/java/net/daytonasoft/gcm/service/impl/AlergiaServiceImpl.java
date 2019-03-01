@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import net.daytonasoft.gcm.domain.Alergia;
@@ -20,7 +22,8 @@ public class AlergiaServiceImpl implements AlergiaService{
 	@Override
 	public List<Alergia> listAllAlergias() {
 		// TODO Auto-generated method stub
-		return alergiaJpaRepository.findAll();
+		Pageable pag= PageRequest.of(0,2);
+		return alergiaJpaRepository.findAll(pag).getContent();
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,6 @@ import net.daytonasoft.gcm.domain.Alergia;
 import net.daytonasoft.gcm.domain.Persona;
 import net.daytonasoft.gcm.repository.PersonaJpaRepository;
 import net.daytonasoft.gcm.service.PersonaService;
-import java.awt.print.Pageable;
 @Service("personaServiceImpl")
 public class PersonaServiceImpl implements PersonaService{
 
@@ -22,9 +22,17 @@ public class PersonaServiceImpl implements PersonaService{
 		@Qualifier("personaRepository")
 		private PersonaJpaRepository personaJpaRepository;
 		@Override
-		public List<Persona> listAllPersonas() {
+		public List<Persona> listAllPacientes(int size, int page, String criteria) {
+			
+		Pageable pag= PageRequest.of(page,size);
+		return personaJpaRepository.findPacienteByCriteria(criteria,"1", pag).getContent();
+		}
 
-			return (List<Persona>) personaJpaRepository.findAll();
+		@Override 
+		public List<Persona> listAllMedicos(int size, int page, String criteria) {
+			
+		Pageable pag= PageRequest.of(page,size); 
+		return personaJpaRepository.findMedicoByCriteria(criteria,"1",pag).getContent();
 		}
 
 		

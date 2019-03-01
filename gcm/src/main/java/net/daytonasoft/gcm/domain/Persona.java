@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -88,6 +89,8 @@ public class Persona {
     private String crFolio2;
     private String crAsiento2;
     private String perTcuCuenta;
+    private String paciente; 
+    private String medico;
     
    public Persona() {
    }
@@ -97,7 +100,7 @@ public class Persona {
        this.persona = persona;
        this.perAfiliadoDiamante = perAfiliadoDiamante;
        this.perEstudiante = perEstudiante;
-       this.perProfesor = perProfesor;
+       this.setPerProfesor(perProfesor);
        this.perEmpEmpresa = perEmpEmpresa;
    }
    public Persona(int persona, String nombre, String apellidos, int tipoDocumento, String documento, String razonSocial, Date fechaNacimiento, String sexo, String pfeProfesion, String nacionalidad, int proveedor, int cliente, int banco, int empleado, int servicios, int otro, String expOtro, String paiPais, String ciuCiudad, String zonZona, String email, String direccion, String correspondencia, String telefono1, String telefono2, String fax, String apartado, String regimenIva, String granContribuyente, String autoretenedor, String actActividad, String observaciones, String representanteLegal, String cedulaRepresentante, String contacto1, String cargoContacto1, String relacionContacto1, String contacto2, String cargoContacto2, String relacionContacto2, String contacto3, String cargoContacto3, String relacionContacto3, String creadoPor, Date fechaCreacion, String modificadoPor, Date fechaModificacion, String citaRegistral, String estadoCivil, String crTomo, String crFolio, String crAsiento, String digitoVerificacion, String documentoNit, String domFiscal, String telefono3, String perAfiliadoDiamante, int perEstudiante, int perProfesor, String perGrdGradoAcademico, String perApellidoSolteraCasada, Long perProProvincia, String perClaseSecEconomico, String provincia, String distrito, String canton, String perEmpEmpresa, Long perConsecutivo, String crTomo2, String crFolio2, String crAsiento2, String perTcuCuenta) {
@@ -159,7 +162,7 @@ public class Persona {
       this.telefono3 = telefono3;
       this.perAfiliadoDiamante = perAfiliadoDiamante;
       this.perEstudiante = perEstudiante;
-      this.perProfesor = perProfesor;
+      this.setPerProfesor(perProfesor);
       this.perGrdGradoAcademico = perGrdGradoAcademico;
       this.perApellidoSolteraCasada = perApellidoSolteraCasada;
       this.perProProvincia = perProProvincia;
@@ -172,7 +175,7 @@ public class Persona {
       this.crTomo2 = crTomo2;
       this.crFolio2 = crFolio2;
       this.crAsiento2 = crAsiento2;
-      this.perTcuCuenta = perTcuCuenta;
+      this.perTcuCuenta = perTcuCuenta; 
    }
    
    @Id 
@@ -890,6 +893,28 @@ public class Persona {
    public void setPerTcuCuenta(String perTcuCuenta) {
        this.perTcuCuenta = perTcuCuenta;
    }
+
+
+	@Column(name="PER_PACIENTE")
+private String getPaciente() {
+	return paciente;
+}
+
+
+private void setPaciente(String paciente) {
+	this.paciente = paciente;
+}
+
+
+@Column(name="PER_MEDICO")
+private String getMedico() {
+	return medico;
+}
+
+
+private void setMedico(String medico) {
+	this.medico = medico;
+}
    
    
 

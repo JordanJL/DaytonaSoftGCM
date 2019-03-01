@@ -9,7 +9,8 @@ import net.daytonasoft.gcm.domain.Persona;
 
 public interface PersonaService {
 	
-	public abstract List<Persona> listAllPersonas();
+	public abstract List<Persona> listAllMedicos(int size, int page, String criteria);
+	public abstract List<Persona> listAllPacientes(int size, int page, String criteria);
 	public abstract Optional<Persona> findOne(int id);
 	public abstract Persona addPersona(Persona persona);
 	public abstract int removePersona(int id);

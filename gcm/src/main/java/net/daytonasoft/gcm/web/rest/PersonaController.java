@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.daytonasoft.gcm.domain.Alergia;
@@ -27,20 +28,28 @@ import net.daytonasoft.gcm.service.PersonaService;
 
 
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping("/personas")
 @CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
-public class RestPersonaController {
+public class PersonaController {
 
 	@Autowired
 	@Qualifier("personaServiceImpl")
 	private PersonaService personaService;
 
 	
-	@GetMapping("/personas")
-	public ResponseEntity<List<Persona>> getAllPersonas(){ 
-		return new ResponseEntity(personaService.listAllPersonas(),HttpStatus.OK);
+	@GetMapping("/pacientes")
+	public ResponseEntity<List<Persona>> getAllPacientes(@RequestParam(name="size",required = false, defaultValue = "10") int size,
+			@RequestParam(name="page",required = false, defaultValue = "1") int page,
+			@RequestParam(name="criteria",required = false, defaultValue = "") String criteria){ 
+		return new ResponseEntity(personaService.listAllPacientes(size, page, criteria),HttpStatus.OK);
 	}
 	
+	@GetMapping("/medicos")
+	public ResponseEntity<List<Persona>> getAllMedicos(@RequestParam(name="size",required = false, defaultValue = "10") int size,
+			@RequestParam(name="page",required = false, defaultValue = "1") int page,
+			@RequestParam(name="criteria",required = false, defaultValue = "") String criteria){ 
+		return new ResponseEntity(personaService.listAllMedicos(size, page, criteria),HttpStatus.OK);
+	}
+	 
 	@GetMapping("/personas/{id}")
 	public ResponseEntity<List<Persona>> getDetailsPersona(@PathVariable int id){ 
 		return new ResponseEntity(personaService.findOne(id),HttpStatus.OK);

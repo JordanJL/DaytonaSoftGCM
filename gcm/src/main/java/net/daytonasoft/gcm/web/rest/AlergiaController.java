@@ -31,14 +31,14 @@ import net.daytonasoft.gcm.service.TipoCitaService;
 
 
 @org.springframework.web.bind.annotation.RestController
-//@RequestMapping("/alergias")
-public class RestController {
+public class AlergiaController {
  
 	
 	@Autowired
 	@Qualifier("alergiaServiceImpl")
 	private AlergiaService alergiaService;
-	
+
+	@CrossOrigin(origins = "http://localhost:8081")
 	@GetMapping("/alergias")
 	public ResponseEntity<List<Alergia>> getAllAlergias(){ 
 		return new ResponseEntity(alergiaService.listAllAlergias(),HttpStatus.OK);
@@ -60,34 +60,4 @@ public class RestController {
 		return alergiaService.removeAlergia(id) > 0;
 	}
 	
-	@Autowired
-	@Qualifier("tipoCitaServiceImpl")
-	private TipoCitaService tipoCitaService;
-	
-	@GetMapping("/tipocitas")
-	public ResponseEntity<List<TipoCita>> getAllTipoCitas(){ 
-		
-		return new ResponseEntity(tipoCitaService.listAllTipoCitas(),HttpStatus.OK);
-	}
-
-	@Autowired
-	@Qualifier("loginServiceImpl")
-	private LoginService loginService;
-	
-	/*@GetMapping("/login")
-	public ResponseEntity<List<Usuario>> getLogin(){ 
-		return new ResponseEntity(loginService.loginAction("MBACLOUDDESA","Centauro"),HttpStatus.UNAUTHORIZED);
-	}*/
-	@CrossOrigin(origins = "http://localhost:8081")
-	@PostMapping("/login")
-	public ResponseEntity login( @Valid @RequestBody Usuario usuario){ 
-		HttpStatus status=  loginService.loginAction(usuario.getUsername(),usuario.getPassword());
-		if ( status == HttpStatus.OK) {
-			return new ResponseEntity(status, HttpStatus.OK);
-		}else {
-			return new ResponseEntity(status, HttpStatus.UNAUTHORIZED);
-		}
-	//	return loginService.loginAction(usuario.getUsername(),usuario.getPassword());
-	}
-
 }
