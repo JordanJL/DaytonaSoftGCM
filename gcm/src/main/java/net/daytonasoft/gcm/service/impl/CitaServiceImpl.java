@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import net.daytonasoft.gcm.domain.Cita;
@@ -29,7 +30,10 @@ public class CitaServiceImpl implements CitaService{
 	@Override
 	public Cita addCita(Cita cita) {
 		// TODO Auto-generated method stub
-		return citaJpaRepository.save(cita); 
+		int id = citaJpaRepository.citaAction(cita.getEmpresa(),
+				cita.getMedico(), cita.getPaciente(),
+				cita.getConsultorio(), cita.getInicio(), cita.getFin());
+		return citaJpaRepository.findById(id).get();
 	}
 
 	@Override

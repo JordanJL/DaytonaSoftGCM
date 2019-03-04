@@ -7,11 +7,30 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.ParameterMode;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="GCM_CITA_TB_NX")
+@NamedStoredProcedureQueries({
+	@NamedStoredProcedureQuery(
+			name="citaaction",
+			procedureName="GCM_CITA_PR_NX",
+			parameters = {
+					@StoredProcedureParameter(mode = ParameterMode.IN, type= String.class, name= "empresa_p"),
+					@StoredProcedureParameter(mode = ParameterMode.IN, type= Integer.class, name= "paciente_p"),
+					@StoredProcedureParameter(mode = ParameterMode.IN, type= Integer.class, name= "medico_p"),
+					@StoredProcedureParameter(mode = ParameterMode.IN, type= Integer.class, name= "consultorio_p"),
+					@StoredProcedureParameter(mode = ParameterMode.IN, type= Date.class, name= "fecha_inicio_p"),
+					@StoredProcedureParameter(mode = ParameterMode.IN, type= Date.class, name= "fecha_fin_p"),
+					@StoredProcedureParameter(mode = ParameterMode.OUT, type= Integer.class, name= "cita_p")
+			}
+			)
+})
 public class Cita {
 	/**
 	 * 
@@ -26,13 +45,11 @@ public class Cita {
 	@Column(name="MCI_PERSONA_MEDICO")
 	private int medico;
 	@Column(name="MCI_PERSONA_PACIENTE")
-	private int paciente;
-	@Column(name="MCI_FECHA")
-	private Date fecha;
+	private int paciente; 
 	@Column(name="MCI_TCI_ID")
 	private int tipoCita;
 	@Column(name="MCI_HORA_INICIO")
-	private Date hora;
+	private Date inicio;
 	@Column(name="MCI_HORA_FIN")
 	private Date fin;
 	@Column(name="MCI_ESTADO")
@@ -91,23 +108,24 @@ public class Cita {
 	public void setPaciente(int paciente) {
 		this.paciente = paciente;
 	}
-	public Date getFecha() {
-		return fecha;
-	}
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
 	public int getTipoCita() {
 		return tipoCita;
 	}
 	public void setTipoCita(int tipoCita) {
 		this.tipoCita = tipoCita;
 	}
-	public Date getHora() {
-		return hora;
+
+	public Date getInicio() {
+		return inicio;
 	}
-	public void setHora(Date hora) {
-		this.hora = hora;
+	public void setInicio(Date inicio) {
+		this.inicio = inicio;
+	}
+	public String getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
 	}
 	public Date getFin() {
 		return fin;
