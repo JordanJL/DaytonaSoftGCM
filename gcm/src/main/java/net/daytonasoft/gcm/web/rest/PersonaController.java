@@ -23,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.daytonasoft.gcm.domain.Alergia;
+import net.daytonasoft.gcm.domain.EstadoCivil;
 import net.daytonasoft.gcm.domain.Persona;
+import net.daytonasoft.gcm.service.EstadoCivilService;
 import net.daytonasoft.gcm.service.PersonaService;
 
 
@@ -35,6 +37,9 @@ public class PersonaController {
 	@Qualifier("personaServiceImpl")
 	private PersonaService personaService;
 
+	@Autowired
+	@Qualifier("estadoCivilServiceImpl")
+	private EstadoCivilService estadoCivilService; 
 	
 	@GetMapping("/pacientes")
 	public ResponseEntity<List<Persona>> getAllPacientes(@RequestParam(name="size",required = false, defaultValue = "10") int size,
@@ -50,6 +55,14 @@ public class PersonaController {
 		return new ResponseEntity(personaService.listAllMedicos(size, page, criteria),HttpStatus.OK);
 	}
 	 
+
+	
+	@CrossOrigin(origins = "http://localhost:8081")
+	@GetMapping("/civil")
+	public ResponseEntity<List<EstadoCivil>> getAllEstadoCivil(){ 
+		return new ResponseEntity(estadoCivilService.listAllEstadoCivil(),HttpStatus.OK);
+	}
+	
 	@GetMapping("/personas/{id}")
 	public ResponseEntity<List<Persona>> getDetailsPersona(@PathVariable int id){ 
 		return new ResponseEntity(personaService.findOne(id),HttpStatus.OK);

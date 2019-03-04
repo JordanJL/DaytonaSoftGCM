@@ -32,9 +32,9 @@ public class Cita {
 	@Column(name="MCI_TCI_ID")
 	private int tipoCita;
 	@Column(name="MCI_HORA_INICIO")
-	private int hora;
+	private Date hora;
 	@Column(name="MCI_HORA_FIN")
-	private int fin;
+	private Date fin;
 	@Column(name="MCI_ESTADO")
 	private int estado;
 	@Column(name="MCI_NOTIFICADO")
@@ -103,16 +103,16 @@ public class Cita {
 	public void setTipoCita(int tipoCita) {
 		this.tipoCita = tipoCita;
 	}
-	public int getHora() {
+	public Date getHora() {
 		return hora;
 	}
-	public void setHora(int hora) {
+	public void setHora(Date hora) {
 		this.hora = hora;
 	}
-	public int getFin() {
+	public Date getFin() {
 		return fin;
 	}
-	public void setFin(int fin) {
+	public void setFin(Date fin) {
 		this.fin = fin;
 	}
 	public int getEstado() {
