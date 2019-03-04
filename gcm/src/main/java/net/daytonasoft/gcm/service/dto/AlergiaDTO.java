@@ -61,9 +61,7 @@ public class AlergiaDTO {
 	public void setModificadoPor(String modificadoPor) {
 		this.modificadoPor = modificadoPor;
 	}
-	public Date getFechaModificacion() {
-		return fechaModificacion;
-	}
+
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
 	}

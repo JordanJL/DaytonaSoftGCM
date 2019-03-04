@@ -36,8 +36,36 @@ public class Consultorio {
 	private String modificadoPor;
 	@Column(name="CST_FECHA_MODIFICACION")
 	private Date fechaModificacion;
-	
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	public int getEstado() {
+		return estado;
+	}
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
+	public String getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+	public String getLocalizacion() {
+		return localizacion;
+	}
+	public void setLocalizacion(String localizacion) {
+		this.localizacion = localizacion;
+	}
 	public String getCreadoPor() {
 		return creadoPor;
 	}
@@ -62,29 +90,7 @@ public class Consultorio {
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
 	}
-	private String getDescripcion() {
-		return descripcion;
-	}
-	private void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	private int getEstado() {
-		return estado;
-	}
-	private void setEstado(int estado) {
-		this.estado = estado;
-	}
-	private String getEmpresa() {
-		return empresa;
-	}
-	private void setEmpresa(String empresa) {
-		this.empresa = empresa;
-	}
-	private String getLocalizacion() {
-		return localizacion;
-	}
-	private void setLocalizacion(String localizacion) {
-		this.localizacion = localizacion;
-	}
+	
+
 
 }

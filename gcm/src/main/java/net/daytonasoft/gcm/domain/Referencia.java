@@ -42,7 +42,7 @@ public class Referencia {
 	private int estado;
 	@Column(name="DRF_EMP_EMPRESA")
 	private String empresa;
-	@Column(name="DRF_DRF_ID")
+	@Column(name="DRF_DRF_ID", nullable=true)
 	private int referencia;
 	@Column(name="DRF_CREADO_POR")
 	private String creadoPor;
@@ -52,35 +52,120 @@ public class Referencia {
 	private String modificadoPor;
 	@Column(name="DRF_FECHA_MODIFICACION")
 	private Date fechaModificacion;
-	private int getId() {
+	public int getId() {
 		return id;
 	}
-	private void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	private String getDescripcion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
-	private void setDescripcion(String descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	private int getTipoDocumento() {
+	public int getTipoDocumento() {
 		return tipoDocumento;
 	}
-	private void setTipoDocumento(int tipoDocumento) {
+	public void setTipoDocumento(int tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 	}
-	private String getDocumento() {
+	public String getDocumento() {
 		return documento;
 	}
-	private void setDocumento(String documento) {
+	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
-	private String getMovil() {
+	public String getMovil() {
 		return movil;
 	}
-	private void setMovil(String movil) {
+	public void setMovil(String movil) {
 		this.movil = movil;
 	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	public String getLugarConsulta() {
+		return lugarConsulta;
+	}
+	public void setLugarConsulta(String lugarConsulta) {
+		this.lugarConsulta = lugarConsulta;
+	}
+	public String getRecepcionista() {
+		return recepcionista;
+	}
+	public void setRecepcionista(String recepcionista) {
+		this.recepcionista = recepcionista;
+	}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	public String getObservaciones() {
+		return observaciones;
+	}
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+	public String getCorreoElectronico() {
+		return correoElectronico;
+	}
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
+	}
+	public int getSecuencia() {
+		return secuencia;
+	}
+	public void setSecuencia(int secuencia) {
+		this.secuencia = secuencia;
+	}
+	public int getEstado() {
+		return estado;
+	}
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
+	public String getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+	public int getReferencia() {
+		return referencia;
+	}
+	public void setReferencia(int referencia) {
+		this.referencia = referencia;
+	}
+	public String getCreadoPor() {
+		return creadoPor;
+	}
+	public void setCreadoPor(String creadoPor) {
+		this.creadoPor = creadoPor;
+	}
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+	public String getModificadoPor() {
+		return modificadoPor;
+	}
+	public void setModificadoPor(String modificadoPor) {
+		this.modificadoPor = modificadoPor;
+	}
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+	
 
 }

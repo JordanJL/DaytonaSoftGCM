@@ -17,47 +17,47 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping; 
-import net.daytonasoft.gcm.domain.Referencia;
+import net.daytonasoft.gcm.domain.Cita;
  
 import net.daytonasoft.gcm.domain.Persona;
-import net.daytonasoft.gcm.service.ReferenciaService;
+import net.daytonasoft.gcm.service.CitaService;
 import net.daytonasoft.gcm.service.LoginService;
 import net.daytonasoft.gcm.service.PersonaService;
  
 import net.daytonasoft.gcm.domain.TipoCita;
 import net.daytonasoft.gcm.domain.Usuario;
-import net.daytonasoft.gcm.service.ReferenciaService;
+import net.daytonasoft.gcm.service.CitaService;
 import net.daytonasoft.gcm.service.TipoCitaService;
 
 
 @org.springframework.web.bind.annotation.RestController
-public class ReferenciaController {
+public class CitaController {
  
 	
 	@Autowired
-	@Qualifier("referenciaServiceImpl")
-	private ReferenciaService referenciaService;
+	@Qualifier("citaServiceImpl")
+	private CitaService citaService;
 
 	@CrossOrigin(origins = "http://localhost:8081")
-	@GetMapping("/referencias")
-	public ResponseEntity<List<Referencia>> getAllReferencias(){ 
-		return new ResponseEntity(referenciaService.listAllReferencias(),HttpStatus.OK);
+	@GetMapping("/citas")
+	public ResponseEntity<List<Cita>> getAllCitas(){ 
+		return new ResponseEntity(citaService.listAllCitas(),HttpStatus.OK);
 	}
 
 	
-	@PostMapping("/referencias")
-	public ResponseEntity<Referencia> addReferencias(@Valid @RequestBody Referencia referencia) {
-		return new ResponseEntity(referenciaService.addReferencia(referencia),HttpStatus.OK);
+	@PostMapping("/citas")
+	public ResponseEntity<Cita> addCourses(@Valid @RequestBody Cita cita) {
+		return new ResponseEntity(citaService.addCita(cita),HttpStatus.OK);
 	}
 	
-	@PutMapping("/referencias")
-	public ResponseEntity<Referencia>  updateReferencias(@Valid @RequestBody Referencia referencia) {
-		return new ResponseEntity(referenciaService.updateReferencia(referencia),HttpStatus.OK);
+	@PutMapping("/citas")
+	public ResponseEntity<Cita>  updateCourses(@Valid @RequestBody Cita cita) {
+		return new ResponseEntity(citaService.updateCita(cita),HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/referencias/{id}")
-	public boolean deleteReferencias(@PathVariable int id) {
-		return referenciaService.removeReferencia(id) > 0;
+	@DeleteMapping("/citas/{id}")
+	public boolean deleteCitas(@PathVariable int id) {
+		return citaService.removeCita(id) > 0;
 	}
 	
 }

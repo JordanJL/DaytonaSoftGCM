@@ -3,7 +3,10 @@ spring:
     location: classpath:banner.txt
       datasource:    url: jdbc:oracle:thin:@192.168.0.8:1521/desa12c.daytonasoft.net
     username: MBACLOUDDESA
-    password: Centauro  jpa:
+    password: Centauro    hikari:      maximum-pool-size: 5
+      pool-name: SpringBootJPAHikariCP
+      connection-timeout: 30000
+      max-lifetime: 2000000  jpa:
     database: ORACLE
     show-sql: true
     hibernate:
@@ -13,4 +16,3 @@ spring:
         hibernate.cache.use_second_level_cache: false
         hibernate.cache.use_query_cache: false
         hibernate.generate_statistics: true
-        

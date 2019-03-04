@@ -17,7 +17,7 @@ public class AlergiaMapper {
 		alergiaDto.setEstado(alergia.getEstado());
 		alergiaDto.setFechaCreacion(alergia.getFechaCreacion());
 		alergiaDto.setModificadoPor(alergia.getModificadoPor());
-		alergiaDto.setFechaModificacion(alergia.getFechaModificacion());
+		//alergiaDto.setFechaModificacion(alergia.getFechaModificacion());
 		alergiaDto.setSecuencia(alergia.getSecuencia());
 		return alergiaDto;
 	}
@@ -30,7 +30,7 @@ public class AlergiaMapper {
 		alergiaEntity.setEstado(alergia.getEstado());
 		alergiaEntity.setFechaCreacion(alergia.getFechaCreacion());
 		alergiaEntity.setModificadoPor(alergia.getModificadoPor());
-		alergiaEntity.setFechaModificacion(alergia.getFechaModificacion());
+		//alergiaEntity.setFechaModificacion(alergia.getFechaModificacion());
 		alergiaEntity.setSecuencia(alergia.getSecuencia());
 		return alergiaEntity;
 	}

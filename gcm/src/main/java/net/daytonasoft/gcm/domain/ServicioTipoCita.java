@@ -31,29 +31,38 @@ public class ServicioTipoCita {
 
 	@Column(name="SER_ATO_ARTICULO")
 	private String articulo;
-	private int getTipoCita() {
-		return tipoCita;
-	}
-	private void setTipoCita(int tipoCita) {
-		this.tipoCita = tipoCita;
-	}
-	private String getEmpresa() {
-		return empresa;
-	}
-	private void setEmpresa(String empresa) {
-		this.empresa = empresa;
-	}
-	private String getArticulo() {
-		return articulo;
-	}
-	private void setArticulo(String articulo) {
-		this.articulo = articulo;
-	}
-	private int getId() {
+
+	public int getId() {
 		return id;
 	}
-	private void setId(int id) {
+
+	public void setId(int id) {
 		this.id = id;
 	}
+
+	public int getTipoCita() {
+		return tipoCita;
+	}
+
+	public void setTipoCita(int tipoCita) {
+		this.tipoCita = tipoCita;
+	}
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
+
+	public String getArticulo() {
+		return articulo;
+	}
+
+	public void setArticulo(String articulo) {
+		this.articulo = articulo;
+	}
+	
 
 }

@@ -21,6 +21,8 @@ public class Antecedente {
 	private String empresa;
 	@Column(name="ANT_DESCRIPCION")
 	private String descripcion;
+	@Column(name="ANT_TIPO") 
+	private String tipo;
 	@Column(name="ANT_ESTADO")
 	private int estado;
 	@Column(name="ANT_SECUENCIA")
@@ -50,6 +52,12 @@ public class Antecedente {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	public int getEstado() {
 		return estado;
@@ -87,5 +95,6 @@ public class Antecedente {
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
 	}
+
 
 }
