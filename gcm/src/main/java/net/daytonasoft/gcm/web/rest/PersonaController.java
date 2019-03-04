@@ -24,9 +24,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import net.daytonasoft.gcm.domain.Alergia;
 import net.daytonasoft.gcm.domain.EstadoCivil;
+import net.daytonasoft.gcm.domain.Pais;
 import net.daytonasoft.gcm.domain.Persona;
+import net.daytonasoft.gcm.domain.Profesion;
 import net.daytonasoft.gcm.service.EstadoCivilService;
+import net.daytonasoft.gcm.service.PaisService;
 import net.daytonasoft.gcm.service.PersonaService;
+import net.daytonasoft.gcm.service.ProfesionService;
 
 
 @org.springframework.web.bind.annotation.RestController
@@ -40,6 +44,14 @@ public class PersonaController {
 	@Autowired
 	@Qualifier("estadoCivilServiceImpl")
 	private EstadoCivilService estadoCivilService; 
+
+	@Autowired
+	@Qualifier("profesionServiceImpl")
+	private ProfesionService profesionService; 
+
+	@Autowired
+	@Qualifier("paisServiceImpl")
+	private PaisService paisService; 
 	
 	@GetMapping("/pacientes")
 	public ResponseEntity<List<Persona>> getAllPacientes(@RequestParam(name="size",required = false, defaultValue = "10") int size,
@@ -55,12 +67,23 @@ public class PersonaController {
 		return new ResponseEntity(personaService.listAllMedicos(size, page, criteria),HttpStatus.OK);
 	}
 	 
-
-	
 	@CrossOrigin(origins = "http://localhost:8081")
 	@GetMapping("/civil")
 	public ResponseEntity<List<EstadoCivil>> getAllEstadoCivil(){ 
 		return new ResponseEntity(estadoCivilService.listAllEstadoCivil(),HttpStatus.OK);
+	}
+	
+	
+	@CrossOrigin(origins = "http://localhost:8081")
+	@GetMapping("/profesion")
+	public ResponseEntity<List<Profesion>> getAllProfesiones(){ 
+		return new ResponseEntity(profesionService.listAllProfesiones(),HttpStatus.OK);
+	}
+
+	@CrossOrigin(origins = "http://localhost:8081")
+	@GetMapping("/pais")
+	public ResponseEntity<List<Pais>> getAllPais(){ 
+		return new ResponseEntity(paisService.listAllPaises(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/personas/{id}")
